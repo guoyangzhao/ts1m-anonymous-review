@@ -27,7 +27,7 @@ Use `index.html` at the repository root. `.nojekyll` allows the files to be serv
 
 ## Resources
 
-This snapshot contains the website, not the dataset images, model checkpoints, or training code. Resource links are configured in `resource-links.js`. With an empty link list, no download buttons are displayed.
+This snapshot contains the website, not the dataset images, model checkpoints, or training code. Google Drive and Baidu Netdisk download mirrors are configured in `resource-links.js` and displayed at the top of the page and in Resources. The Baidu extraction code is `fjsy`.
 
 ## License
 
