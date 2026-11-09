@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Anonymous project page for TS-1M, a 454-category traffic sign dataset and diagnostic benchmark.">
+  <title>TS-1M — Anonymous Project Page</title>
+  <link rel="icon" href="assets_common/icons/ts-1m-circle.png" type="image/png">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/anonymous.css">
+  <script defer src="resource-links.js"></script>
+  <script defer src="static/js/anonymous-page.js"></script>
+</head>
+
+    <body>
+        <div class="header-wrapper">
+
+            <div class="header-container" id="header-container">
+                <div class="header-content">
+                <h1 style="font-size:1.9rem; line-height:1.3;">
+                  Traffic Sign Recognition in Autonomous Driving: Dataset, Benchmark, and Field Experiment
+                </h1>
+
+                <h2 style="margin:2.2rem 0 1.8rem; display:flex; align-items:center; gap:0.4rem;">
+                  <span class="icon is-small">
+                    <img src="assets_common/icons/ts-1m-circle.png" style="height:1.8em; vertical-align:text-top;" alt="TS-1M project figure">
+                  </span>&nbsp;TS-1M Dataset & Benchmark
+                </h2>
+
+                <p class="anonymous-label">Anonymous project page</p>
+                <div class="button-container">
+                  <a class="button" href="#dataset">Dataset</a>
+                  <a class="button" href="#benchmark">Benchmark results</a>
+                  <a class="button" href="#real">Semantic mapping</a>
+                </div>
+                </div>
+                <div class="header-image">
+                    <img src="assets/ts1m/ts-1m-cover2.png" class="teaser-image" alt="TS-1M traffic sign dataset artwork">
+                </div>
+            </div>
+        </div>
+
+        <main class="page-layout" id="main-content">
+            <aside class="contents" aria-label="Page contents">
+                <nav>
+                    <h4>Contents</h4>
+                    <div><a href="#introduction">Introduction</a></div>
+                    <div><a href="#dataset">TS-1M Dataset</a></div>
+                    
+                    <div><a href="#benchmark">Benchmark</a></div>
+                    <div><a href="#real">Semantic mapping</a></div>
+                </nav>
+            </aside><div class="article-content">
+
+            <section id="introduction">
+              <div class="wb-section">
+                <div class="wb-kicker"><span class="icon is-small">
+                  <img src="assets/ts1m/intro.png" style="height: 1.6em;" loading="lazy" alt="">
+                </span>&nbsp;Introduction</div>
+                  <div class="wb-hr"></div>
+                  <p class="wb-lead">
+                    Traffic signs play a critical role in intelligent transportation systems and autonomous driving, providing essential cues for navigation, safety regulation, and environmental awareness. 
+                    Although numerous recognition models have been proposed, existing benchmarks are typically limited in scale, geographic diversity, and category coverage, making it difficult to evaluate model robustness in real-world scenarios.
+                  </p>
+
+                  <p class="wb-lead">
+                    Current traffic sign datasets often suffer from regional bias, inconsistent labeling standards, and insufficient representation of rare or visually ambiguous signs. 
+                    These limitations restrict the development and fair comparison of modern recognition models, especially for cross-region generalization and long-tail category understanding.
+                  </p>
+
+                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                    <img src="assets/ts1m/teaser.png" alt="Overview of the TS-1M dataset, benchmark tasks, and mapping case study">
+                  </figure>
+
+                  <p class="wb-lead">
+                    To address these challenges, we introduce <strong>TS-1M</strong>, a large-scale traffic sign dataset and benchmark designed for comprehensive evaluation of modern vision models. 
+                    TS-1M contains over <strong>1 million image samples across 454 categories</strong>, aggregated and standardized from diverse sources worldwide. 
+                    Together with a unified evaluation benchmark spanning classical CNNs, self-supervised models, and vision-language models, TS-1M provides a diagnostic testbed for studying robustness, scalability, and generalization in traffic sign recognition.
+                  </p>
+                  <div class="wb-meta" aria-label="VA Models tags">
+                      <span class="wb-chip">Traffic sign recognition</span>
+                      <span class="wb-chip">TS-1M Dataset</span>
+                      <span class="wb-chip">Benchmark analysis</span>
+                      <span class="wb-chip">Semantic mapping</span>
+                  </div>
+                
+                <br><br>
+              </div>
+            </section>
+
+            <section id="dataset">
+              <div class="wb-section">
+                <div class="wb-kicker"><span class="icon is-small">
+                  <img src="assets/ts1m/definition.png" style="height: 1.6em;" loading="lazy" alt="">
+                </span>&nbsp;TS-1M Dataset</div>
+                  <div class="wb-hr"></div>
+
+                  <h3>Data Collection & Processing</h3>
+                  <p class="wb-lead">TS-1M combines public traffic sign datasets and additional web-collected samples within a unified <strong>454-category taxonomy</strong>. Traffic sign regions are cropped using available source annotations. Source categories are aligned by comparing sign graphics and traffic meanings; numerical, directional, vehicle-specific, and functional distinctions are retained. All 454 retained categories are manually reviewed.</p>
+
+                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                    <img src="assets/ts1m/dataset-bulid.png" alt="TS-1M collection and category harmonization pipeline">
+                  </figure>
+
+                  <h3>Release & Statistics</h3>
+                  <p class="wb-lead">TS-1M contains <strong>1,267,558 image samples, including offline augmentation</strong>: <strong>1,033,947 training samples</strong> and <strong>233,611 test samples</strong>. Each original image and its augmented variants remain in the same partition. The inventory spans 454 categories and globally collected traffic signs with diverse designs, languages, and road environments.</p>
+
+                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                    <img src="assets/ts1m/dataset-statistics.jpg" alt="Geographic, category, and image-resolution distributions in TS-1M">
+                  </figure>
+
+                  <h3>Challenge-Oriented Evaluation Sets</h3>
+                  <p class="wb-lead">The benchmark evaluates four challenges. <strong>Cross-region and cross-dataset transfer</strong> uses a separate training run for each target, excluding the target source and, for regional targets, its region across other sources. MTSD is held out as an entire global source dataset. <strong>Rare-Class</strong> uses categories with fewer than 40 or 50 test samples under a common per-category split ratio. <strong>Low-Clarity</strong> uses crops below 30 × 30 pixels before model-input resizing. <strong>Semantic descriptions</strong> support classification experiments using class names, scene context, and rule information.</p>
+
+                  <div class="wb-meta" aria-label="VA Models tags">
+                    <span class="wb-chip">Cross-Region Recognition</span>
+                    <span class="wb-chip">Rare-Class</span>
+                    <span class="wb-chip">Low-Clarity</span>
+                    <span class="wb-chip">Semantic Description</span>
+                  </div>
+
+                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                    <img src="assets/ts1m/dataset-sample.png" alt="Illustrative signs and semantic descriptions from the globally collected data">
+                  </figure>
+
+                <br><br>
+              </div>
+            </section>
+
+            <section id="benchmark">
+              <div class="wb-section">
+                <div class="wb-kicker"><span class="icon is-small">
+                  <img src="assets/ts1m/definition.png" style="height: 1.6em;" loading="lazy" alt="">
+                </span>&nbsp;Benchmark Analysis</div>
+                  <div class="wb-hr"></div>
+
+                  <h3>Modeling</h3>
+                  <p class="wb-lead">We benchmark <strong>19 models</strong> in three groups: ten classical supervised models, five self-supervised pretrained models, and four vision-language models. SSL methods include MAE/SimMIM (masked image modeling), DINO (self-distillation), and SimCLR/MoCoV3 (contrastive learning). VLMs include CLIP, BLIP, BLIP-2, and LLaVA.</p>
+                  <div class="model-grid">
+<article class="model-card"><h4>Supervised models</h4><p>ImageNet-pretrained CNN, transformer, and hybrid classifiers adapted to the 454-category task.</p></article>
+<article class="model-card"><h4>Self-supervised models</h4><p>Masked image modeling, self-distillation, and contrastive pretraining, followed by supervised classification fine-tuning.</p></article>
+<article class="model-card"><h4>Vision-language models</h4><p>CLIP: image–text similarity. BLIP: ITC retrieval and ITM reranking. BLIP-2 and LLaVA: category-text generation.</p></article>
+</div>
+
+                  <h3>Overall Benchmark on TS-1M</h3>
+                  <p class="wb-lead">On the TS-1M test split, <strong>CLIP achieves 95.33% Top-1 accuracy</strong> and the highest macro-precision and macro-F1. ConvNeXt reaches 94.28% accuracy and a slightly higher macro-recall (0.9086 versus CLIP’s 0.9084). SimMIM achieves the highest accuracy among the evaluated SSL models (94.03%).</p>
+                  <div class="table-scroll" role="region" aria-label="Overall benchmark on the TS-1M test split." tabindex="0"><table class="benchmark-table"><caption>Overall benchmark on the TS-1M test split.</caption><thead><tr><th scope="col">Model</th><th scope="col">Params (M) ↓</th><th scope="col">FLOPs (G) ↓</th><th scope="col">Acc.@1 ↑</th><th scope="col">Precision ↑</th><th scope="col">Recall ↑</th><th scope="col">F1 ↑</th><th scope="col">Δ (pp) ↑</th></tr></thead><tbody><tr><th scope="row">ResNet50</th><td>25.6</td><td>4.09</td><td>0.9260</td><td>0.8724</td><td>0.8633</td><td>0.8570</td><td>—</td></tr><tr><th scope="row">ResNet101</th><td>44.5</td><td>7.80</td><td>0.9315</td><td>0.8899</td><td>0.8979</td><td>0.8844</td><td>+0.55</td></tr><tr><th scope="row">ResNeXt50</th><td>25.0</td><td>4.23</td><td>0.9403</td><td>0.9005</td><td>0.9007</td><td>0.8920</td><td>+1.43</td></tr><tr><th scope="row">ShuffleNetV2</th><td>2.28</td><td>0.15</td><td>0.9234</td><td>0.8583</td><td>0.8811</td><td>0.8592</td><td>-0.26</td></tr><tr><th scope="row">MobileNetV3</th><td>2.54</td><td>0.06</td><td>0.9265</td><td>0.8876</td><td>0.8653</td><td>0.8628</td><td>+0.05</td></tr><tr><th scope="row">EfficientNetV2</th><td>21.46</td><td>9.72</td><td>0.9372</td><td>0.9135</td><td>0.8954</td><td>0.8977</td><td>+1.12</td></tr><tr><th scope="row">MobileViT</th><td>5.58</td><td>2.03</td><td>0.9277</td><td>0.8855</td><td>0.8888</td><td>0.8786</td><td>+0.17</td></tr><tr><th scope="row">EdgeNeXt</th><td>18.51</td><td>3.81</td><td>0.9369</td><td>0.9033</td><td>0.9021</td><td>0.8951</td><td>+1.09</td></tr><tr><th scope="row">Vision Transformer</th><td>86.56</td><td>17.58</td><td>0.9244</td><td>0.9188</td><td>0.8478</td><td>0.8658</td><td>-0.16</td></tr><tr><th scope="row">ConvNeXt</th><td>50.22</td><td>8.69</td><td>0.9428</td><td>0.9146</td><td>0.9086</td><td>0.9043</td><td>+1.68</td></tr><tr><th scope="row">MAE</th><td>86.56</td><td>17.58</td><td>0.9160</td><td>0.8733</td><td>0.8700</td><td>0.8575</td><td>-1.00</td></tr><tr><th scope="row">SimMIM</th><td>87.77</td><td>15.14</td><td>0.9403</td><td>0.9236</td><td>0.8935</td><td>0.8972</td><td>+1.43</td></tr><tr><th scope="row">DINO</th><td>86.56</td><td>17.58</td><td>0.9190</td><td>0.8898</td><td>0.8516</td><td>0.8595</td><td>-0.70</td></tr><tr><th scope="row">MoCoV3</th><td>25.6</td><td>4.09</td><td>0.9385</td><td>0.9008</td><td>0.8935</td><td>0.8876</td><td>+1.25</td></tr><tr><th scope="row">SimCLR</th><td>25.6</td><td>4.09</td><td>0.9364</td><td>0.8989</td><td>0.8929</td><td>0.8868</td><td>+1.04</td></tr><tr class="vlm-row"><th scope="row">CLIP</th><td>149.6</td><td>39.7</td><td>0.9533</td><td>0.9310</td><td>0.9084</td><td>0.9113</td><td>+2.73</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>223.7</td><td>67.2</td><td>0.9448</td><td>0.8872</td><td>0.8949</td><td>0.8770</td><td>+1.88</td></tr><tr class="vlm-row"><th scope="row">BLIP-2</th><td>3756.2</td><td>611.8</td><td>0.9432</td><td>0.8828</td><td>0.8883</td><td>0.8776</td><td>+1.72</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>7062.9</td><td>6216.7</td><td>0.9406</td><td>0.9136</td><td>0.8677</td><td>0.8776</td><td>+1.46</td></tr></tbody></table></div>
+
+                  <h3>Results of Challenge Task</h3>
+                  <p class="wb-lead"><strong>Cross-Region and Cross-Dataset Transfer.</strong> All evaluated models achieve test-image-weighted average accuracies above 87%. CLIP leads on nine of the ten targets, reaching a weighted average accuracy of <strong>93.51%</strong>; ConvNeXt reaches <strong>91.42%</strong>. These results characterize generalization under the target-specific holdouts on the globally collected TS-1M data foundation.</p>
+                  <div class="table-scroll" role="region" aria-label="Target-specific cross-region and cross-dataset transfer. Avg. is weighted by evaluated test-image counts." tabindex="0"><table class="benchmark-table"><caption>Target-specific cross-region and cross-dataset transfer. Avg. is weighted by evaluated test-image counts.</caption><thead><tr><th scope="col">Model</th><th scope="col">TT100K</th><th scope="col">GTSRB</th><th scope="col">PTSD</th><th scope="col">TurkeyTS</th><th scope="col">PolishTS</th><th scope="col">BelgiumTS</th><th scope="col">RTSD</th><th scope="col">MTSD</th><th scope="col">DFG</th><th scope="col">ARTS</th><th scope="col">Avg.</th><th scope="col">Δ (pp)</th></tr></thead><tbody><tr><th scope="row">ResNet50</th><td>0.9255</td><td>0.9488</td><td>0.9143</td><td>0.9020</td><td>0.8461</td><td>0.9507</td><td>0.9306</td><td>0.8503</td><td>0.8495</td><td>0.9072</td><td>0.8900</td><td>—</td></tr><tr><th scope="row">ResNet101</th><td>0.9393</td><td>0.9492</td><td>0.9126</td><td>0.9050</td><td>0.8561</td><td>0.9502</td><td>0.9311</td><td>0.8497</td><td>0.8746</td><td>0.9325</td><td>0.8978</td><td>+0.78</td></tr><tr><th scope="row">ResNeXt50</th><td>0.9370</td><td>0.9447</td><td>0.9263</td><td>0.9340</td><td>0.8563</td><td>0.9551</td><td>0.9350</td><td>0.8636</td><td>0.9107</td><td>0.9508</td><td>0.9091</td><td>+1.91</td></tr><tr><th scope="row">ShuffleNetV2</th><td>0.9374</td><td>0.9474</td><td>0.9136</td><td>0.9118</td><td>0.8654</td><td>0.9454</td><td>0.9374</td><td>0.8272</td><td>0.8340</td><td>0.9263</td><td>0.8861</td><td>-0.39</td></tr><tr><th scope="row">MobileNetV3</th><td>0.9290</td><td>0.9448</td><td>0.9172</td><td>0.9141</td><td>0.8526</td><td>0.9400</td><td>0.9322</td><td>0.8470</td><td>0.8393</td><td>0.9148</td><td>0.8895</td><td>-0.05</td></tr><tr><th scope="row">EfficientNetV2</th><td>0.9409</td><td>0.9417</td><td>0.9122</td><td>0.9184</td><td>0.8592</td><td>0.9556</td><td>0.9414</td><td>0.8553</td><td>0.8949</td><td>0.9434</td><td>0.9036</td><td>+1.35</td></tr><tr><th scope="row">MobileViT</th><td>0.9378</td><td>0.9455</td><td>0.9050</td><td>0.9134</td><td>0.8552</td><td>0.9417</td><td>0.9355</td><td>0.8412</td><td>0.8598</td><td>0.9316</td><td>0.8927</td><td>+0.27</td></tr><tr><th scope="row">EdgeNeXt</th><td>0.9337</td><td>0.9417</td><td>0.9184</td><td>0.9176</td><td>0.8470</td><td>0.9493</td><td>0.9416</td><td>0.8610</td><td>0.8926</td><td>0.9374</td><td>0.9031</td><td>+1.31</td></tr><tr><th scope="row">Vision Transformer</th><td>0.9163</td><td>0.9477</td><td>0.9151</td><td>0.9106</td><td>0.8551</td><td>0.9489</td><td>0.9326</td><td>0.8404</td><td>0.8855</td><td>0.8914</td><td>0.8860</td><td>-0.40</td></tr><tr><th scope="row">ConvNeXt</th><td>0.9442</td><td>0.9441</td><td>0.9185</td><td>0.9301</td><td>0.8618</td><td>0.9530</td><td>0.9425</td><td>0.8707</td><td>0.9302</td><td>0.9521</td><td>0.9142</td><td>+2.41</td></tr><tr><th scope="row">MAE</th><td>0.9323</td><td>0.9454</td><td>0.9212</td><td>0.8980</td><td>0.8517</td><td>0.9572</td><td>0.9371</td><td>0.8118</td><td>0.8822</td><td>0.8816</td><td>0.8760</td><td>-1.40</td></tr><tr><th scope="row">SimMIM</th><td>0.9358</td><td>0.9426</td><td>0.9197</td><td>0.9114</td><td>0.8808</td><td>0.9503</td><td>0.9414</td><td>0.8626</td><td>0.9208</td><td>0.9414</td><td>0.9083</td><td>+1.83</td></tr><tr><th scope="row">DINO</th><td>0.9270</td><td>0.9477</td><td>0.9261</td><td>0.9129</td><td>0.8645</td><td>0.9516</td><td>0.9385</td><td>0.8097</td><td>0.8948</td><td>0.9260</td><td>0.8843</td><td>-0.58</td></tr><tr><th scope="row">MoCoV3</th><td>0.9377</td><td>0.9413</td><td>0.9182</td><td>0.9326</td><td>0.8546</td><td>0.9488</td><td>0.9413</td><td>0.8661</td><td>0.8871</td><td>0.9397</td><td>0.9057</td><td>+1.57</td></tr><tr><th scope="row">SimCLR</th><td>0.9390</td><td>0.9497</td><td>0.9197</td><td>0.9304</td><td>0.8700</td><td>0.9593</td><td>0.9333</td><td>0.8576</td><td>0.8838</td><td>0.9369</td><td>0.9037</td><td>+1.37</td></tr><tr class="vlm-row"><th scope="row">CLIP</th><td>0.9496</td><td>0.9432</td><td>0.9448</td><td>0.9770</td><td>0.9719</td><td>0.9615</td><td>0.9447</td><td>0.9058</td><td>0.9444</td><td>0.9545</td><td>0.9351</td><td>+4.51</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>0.9296</td><td>0.9395</td><td>0.9119</td><td>0.9032</td><td>0.8618</td><td>0.9342</td><td>0.9298</td><td>0.8698</td><td>0.8801</td><td>0.9145</td><td>0.8997</td><td>+0.97</td></tr><tr class="vlm-row"><th scope="row">BLIP-2</th><td>0.9210</td><td>0.9101</td><td>0.9352</td><td>0.9460</td><td>0.8857</td><td>0.9563</td><td>0.9385</td><td>0.8622</td><td>0.9138</td><td>0.9184</td><td>0.8999</td><td>+0.98</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>0.9071</td><td>0.9009</td><td>0.9411</td><td>0.9727</td><td>0.9572</td><td>0.9518</td><td>0.9182</td><td>0.8743</td><td>0.9187</td><td>0.9172</td><td>0.9041</td><td>+1.40</td></tr></tbody></table></div>
+
+                  <p class="wb-lead"><strong>Rare-Class Recognition.</strong> With the same per-category split ratio, low test frequencies identify categories with limited training representation. CLIP achieves <strong>92.91%</strong> on Rare &lt; 40 and <strong>92.56%</strong> on Rare &lt; 50. ConvNeXt reaches 87.84% and 88.29%; SimMIM is the strongest SSL model in both subsets.</p>
+                  <div class="table-scroll" role="region" aria-label="Rare-class recognition. Thresholds refer to test samples per category under the common per-category split ratio." tabindex="0"><table class="benchmark-table"><caption>Rare-class recognition. Thresholds refer to test samples per category under the common per-category split ratio.</caption><thead><tr><th scope="col">Model</th><th scope="col">Rare &lt; 40: Acc.</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Δ (pp)</th><th scope="col">Rare &lt; 50: Acc.</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Δ (pp)</th></tr></thead><tbody><tr><th scope="row">ResNet50</th><td>0.8381</td><td>0.9460</td><td>0.8373</td><td>0.8636</td><td>—</td><td>0.8438</td><td>0.9469</td><td>0.8424</td><td>0.8683</td><td>—</td></tr><tr><th scope="row">ResNet101</th><td>0.8610</td><td>0.9532</td><td>0.8597</td><td>0.8767</td><td>+2.29</td><td>0.8639</td><td>0.9521</td><td>0.8625</td><td>0.8792</td><td>+2.01</td></tr><tr><th scope="row">ResNeXt50</th><td>0.8530</td><td>0.9518</td><td>0.8525</td><td>0.8745</td><td>+1.49</td><td>0.8601</td><td>0.9519</td><td>0.8568</td><td>0.8794</td><td>+1.63</td></tr><tr><th scope="row">ShuffleNetV2</th><td>0.8334</td><td>0.9303</td><td>0.8307</td><td>0.8509</td><td>-0.47</td><td>0.8395</td><td>0.9281</td><td>0.8363</td><td>0.8546</td><td>-0.43</td></tr><tr><th scope="row">MobileNetV3</th><td>0.8090</td><td>0.9326</td><td>0.8071</td><td>0.8306</td><td>-2.91</td><td>0.8179</td><td>0.9314</td><td>0.8148</td><td>0.8366</td><td>-2.59</td></tr><tr><th scope="row">EfficientNetV2</th><td>0.8689</td><td>0.9602</td><td>0.8533</td><td>0.8826</td><td>+3.08</td><td>0.8736</td><td>0.9606</td><td>0.8581</td><td>0.8867</td><td>+2.98</td></tr><tr><th scope="row">MobileViT</th><td>0.8486</td><td>0.9462</td><td>0.8478</td><td>0.8709</td><td>+1.05</td><td>0.8545</td><td>0.9453</td><td>0.8529</td><td>0.8748</td><td>+1.07</td></tr><tr><th scope="row">EdgeNeXt</th><td>0.8642</td><td>0.9468</td><td>0.8632</td><td>0.8836</td><td>+2.61</td><td>0.8694</td><td>0.9458</td><td>0.8677</td><td>0.8869</td><td>+2.56</td></tr><tr><th scope="row">Vision Transformer</th><td>0.8314</td><td>0.9568</td><td>0.7891</td><td>0.8325</td><td>-0.67</td><td>0.8407</td><td>0.9569</td><td>0.7985</td><td>0.8403</td><td>-0.31</td></tr><tr><th scope="row">ConvNeXt</th><td>0.8784</td><td>0.9446</td><td>0.8705</td><td>0.8891</td><td>+4.03</td><td>0.8829</td><td>0.9469</td><td>0.8746</td><td>0.8932</td><td>+3.91</td></tr><tr><th scope="row">MAE</th><td>0.8134</td><td>0.9252</td><td>0.7681</td><td>0.8069</td><td>-2.47</td><td>0.8235</td><td>0.9292</td><td>0.7786</td><td>0.8170</td><td>-2.03</td></tr><tr><th scope="row">SimMIM</th><td>0.8706</td><td>0.9595</td><td>0.8553</td><td>0.8806</td><td>+3.25</td><td>0.8730</td><td>0.9597</td><td>0.8567</td><td>0.8817</td><td>+2.92</td></tr><tr><th scope="row">DINO</th><td>0.8169</td><td>0.9071</td><td>0.7816</td><td>0.8135</td><td>-2.12</td><td>0.8258</td><td>0.9120</td><td>0.7902</td><td>0.8222</td><td>-1.80</td></tr><tr><th scope="row">MoCoV3</th><td>0.8460</td><td>0.9425</td><td>0.8447</td><td>0.8663</td><td>+0.79</td><td>0.8539</td><td>0.9431</td><td>0.8515</td><td>0.8719</td><td>+1.01</td></tr><tr><th scope="row">SimCLR</th><td>0.8469</td><td>0.9414</td><td>0.8456</td><td>0.8689</td><td>+0.88</td><td>0.8520</td><td>0.9407</td><td>0.8501</td><td>0.8720</td><td>+0.82</td></tr><tr class="vlm-row"><th scope="row">CLIP</th><td>0.9291</td><td>0.9453</td><td>0.9295</td><td>0.9218</td><td>+9.10</td><td>0.9256</td><td>0.9448</td><td>0.9251</td><td>0.9183</td><td>+8.18</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>0.8821</td><td>0.8760</td><td>0.8778</td><td>0.8617</td><td>+4.40</td><td>0.8827</td><td>0.8804</td><td>0.8777</td><td>0.8626</td><td>+3.89</td></tr><tr class="vlm-row"><th scope="row">BLIP-2</th><td>0.8715</td><td>0.9300</td><td>0.8678</td><td>0.8771</td><td>+3.34</td><td>0.8772</td><td>0.9254</td><td>0.8700</td><td>0.8763</td><td>+3.34</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>0.8655</td><td>0.9315</td><td>0.8600</td><td>0.8755</td><td>+2.74</td><td>0.8690</td><td>0.9320</td><td>0.8640</td><td>0.8790</td><td>+2.52</td></tr></tbody></table></div>
+
+                  <p class="wb-lead"><strong>Robustness on Low-Clarity Signs.</strong> This evaluation measures recognition with limited spatial detail in small sign crops. CLIP achieves <strong>93.13%</strong> Top-1 accuracy, followed by BLIP (91.75%) and ConvNeXt (90.88%). Among SSL models, MoCoV3 reaches 90.12%, SimMIM 90.00%, and SimCLR 89.59%.</p>
+                  <div class="table-scroll" role="region" aria-label="Low-Clarity recognition on crops below 30 × 30 pixels before model-input resizing." tabindex="0"><table class="benchmark-table"><caption>Low-Clarity recognition on crops below 30 × 30 pixels before model-input resizing.</caption><thead><tr><th scope="col">Model</th><th scope="col">Acc.@1 ↑</th><th scope="col">Precision ↑</th><th scope="col">Recall ↑</th><th scope="col">F1 ↑</th><th scope="col">Δ (pp) ↑</th></tr></thead><tbody><tr><th scope="row">ResNet50</th><td>0.8768</td><td>0.7707</td><td>0.7768</td><td>0.7553</td><td>—</td></tr><tr><th scope="row">ResNet101</th><td>0.8876</td><td>0.7824</td><td>0.8414</td><td>0.7948</td><td>+1.08</td></tr><tr><th scope="row">ResNeXt50</th><td>0.9055</td><td>0.8005</td><td>0.8512</td><td>0.8123</td><td>+2.87</td></tr><tr><th scope="row">ShuffleNetV2</th><td>0.8691</td><td>0.7284</td><td>0.8082</td><td>0.7468</td><td>-0.77</td></tr><tr><th scope="row">MobileNetV3</th><td>0.8789</td><td>0.7882</td><td>0.7925</td><td>0.7729</td><td>+0.21</td></tr><tr><th scope="row">EfficientNetV2</th><td>0.9014</td><td>0.8284</td><td>0.8325</td><td>0.8164</td><td>+2.46</td></tr><tr><th scope="row">MobileViT</th><td>0.8845</td><td>0.7624</td><td>0.8098</td><td>0.7656</td><td>+0.77</td></tr><tr><th scope="row">EdgeNeXt</th><td>0.8937</td><td>0.8014</td><td>0.8518</td><td>0.8121</td><td>+1.69</td></tr><tr><th scope="row">Vision Transformer</th><td>0.8622</td><td>0.8184</td><td>0.7655</td><td>0.7659</td><td>-1.46</td></tr><tr><th scope="row">ConvNeXt</th><td>0.9088</td><td>0.8426</td><td>0.8725</td><td>0.8441</td><td>+3.20</td></tr><tr><th scope="row">MAE</th><td>0.8332</td><td>0.7943</td><td>0.7585</td><td>0.7536</td><td>-4.36</td></tr><tr><th scope="row">SimMIM</th><td>0.9000</td><td>0.8348</td><td>0.8502</td><td>0.8266</td><td>+2.32</td></tr><tr><th scope="row">DINO</th><td>0.8394</td><td>0.8076</td><td>0.8047</td><td>0.7858</td><td>-3.74</td></tr><tr><th scope="row">MoCoV3</th><td>0.9012</td><td>0.7993</td><td>0.8336</td><td>0.7995</td><td>+2.44</td></tr><tr><th scope="row">SimCLR</th><td>0.8959</td><td>0.7885</td><td>0.8293</td><td>0.7938</td><td>+1.91</td></tr><tr class="vlm-row"><th scope="row">CLIP</th><td>0.9313</td><td>0.8861</td><td>0.8583</td><td>0.8583</td><td>+5.45</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>0.9175</td><td>0.8491</td><td>0.8835</td><td>0.8442</td><td>+4.07</td></tr><tr class="vlm-row"><th scope="row">BLIP-2</th><td>0.8931</td><td>0.7621</td><td>0.8214</td><td>0.7685</td><td>+1.63</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>0.8926</td><td>0.7907</td><td>0.7531</td><td>0.7526</td><td>+1.58</td></tr></tbody></table></div>
+                                    
+                  <p class="wb-lead"><strong>Effect of Semantic Enhancement.</strong> Scenario and Rules enter training prompts for description-based fine-tuning and inference prompts for zero-shot evaluation. The four text compositions specify the inference prompts for each setting; the predefined category vocabulary is unchanged. Test-image ground-truth labels are not model inputs and do not select descriptions. With Class + Scenario + Rules and description-based fine-tuning, CLIP, BLIP, and LLaVA reach 95.81%, 94.78%, and 96.98% accuracy, respectively. These are classification benefits, rather than direct evidence of traffic-rule understanding.</p>
+
+                  <div class="table-scroll" role="region" aria-label="Effect of semantic descriptions on VLM classification. All values are classification metrics, not measurements of traffic-rule understanding." tabindex="0"><table class="benchmark-table"><caption>Effect of semantic descriptions on VLM classification. All values are classification metrics, not measurements of traffic-rule understanding.</caption><thead><tr><th scope="col">Model</th><th scope="col">Text composition</th><th scope="col">Zero-shot: Acc.</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">FT w/o descriptions: Acc.</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">FT w/ descriptions: Acc.</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead><tbody><tr class="vlm-row"><th scope="row">CLIP</th><td>Class</td><td>0.0664</td><td>0.1227</td><td>0.0918</td><td>0.0730</td><td>0.9554</td><td>0.9359</td><td>0.9040</td><td>0.9105</td><td>0.9426</td><td>0.9094</td><td>0.8895</td><td>0.8849</td></tr><tr class="vlm-row"><th scope="row">CLIP</th><td>Class + Scenario</td><td>0.0805</td><td>0.1067</td><td>0.1051</td><td>0.0782</td><td>0.8149</td><td>0.7621</td><td>0.8394</td><td>0.7436</td><td>0.9514</td><td>0.9043</td><td>0.9009</td><td>0.8928</td></tr><tr class="vlm-row"><th scope="row">CLIP</th><td>Class + Rules</td><td>0.0851</td><td>0.1103</td><td>0.1057</td><td>0.0794</td><td>0.7450</td><td>0.6827</td><td>0.8032</td><td>0.6695</td><td>0.9530</td><td>0.9179</td><td>0.9116</td><td>0.9014</td></tr><tr class="vlm-row"><th scope="row">CLIP</th><td>Class + Scenario + Rules</td><td>0.0971</td><td>0.1166</td><td>0.1068</td><td>0.0822</td><td>0.6739</td><td>0.6612</td><td>0.7753</td><td>0.6281</td><td>0.9581</td><td>0.9345</td><td>0.9161</td><td>0.9160</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>Class</td><td>0.1432</td><td>0.2060</td><td>0.1969</td><td>0.1426</td><td>0.9448</td><td>0.8872</td><td>0.8949</td><td>0.8770</td><td>0.8958</td><td>0.8111</td><td>0.8574</td><td>0.8158</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>Class + Scenario</td><td>0.1467</td><td>0.2228</td><td>0.2286</td><td>0.1652</td><td>0.7971</td><td>0.7817</td><td>0.8241</td><td>0.7396</td><td>0.9118</td><td>0.8580</td><td>0.8898</td><td>0.8261</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>Class + Rules</td><td>0.1522</td><td>0.2194</td><td>0.2005</td><td>0.1517</td><td>0.7287</td><td>0.7020</td><td>0.7849</td><td>0.6723</td><td>0.9280</td><td>0.8721</td><td>0.8819</td><td>0.8507</td></tr><tr class="vlm-row"><th scope="row">BLIP</th><td>Class + Scenario + Rules</td><td>0.1754</td><td>0.2370</td><td>0.2453</td><td>0.1705</td><td>0.6642</td><td>0.7172</td><td>0.7579</td><td>0.6377</td><td>0.9478</td><td>0.8881</td><td>0.9098</td><td>0.8834</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>Class</td><td>0.1061</td><td>0.1094</td><td>0.0868</td><td>0.0866</td><td>0.9406</td><td>0.9136</td><td>0.8677</td><td>0.8776</td><td>0.9416</td><td>0.8895</td><td>0.8953</td><td>0.8746</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>Class + Scenario</td><td>0.1566</td><td>0.1523</td><td>0.1049</td><td>0.1194</td><td>0.8859</td><td>0.8607</td><td>0.8033</td><td>0.8104</td><td>0.9507</td><td>0.9189</td><td>0.8943</td><td>0.8971</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>Class + Rules</td><td>0.1460</td><td>0.1452</td><td>0.1176</td><td>0.1099</td><td>0.8685</td><td>0.8307</td><td>0.7743</td><td>0.7819</td><td>0.9452</td><td>0.9244</td><td>0.9106</td><td>0.9065</td></tr><tr class="vlm-row"><th scope="row">LLaVA</th><td>Class + Scenario + Rules</td><td>0.1716</td><td>0.1500</td><td>0.1263</td><td>0.1302</td><td>0.8373</td><td>0.8106</td><td>0.7293</td><td>0.7261</td><td>0.9698</td><td>0.9493</td><td>0.9270</td><td>0.9337</td></tr></tbody></table></div>
+
+                <br><br>
+              </div>
+            </section>
+
+            <section id="real">
+              <div class="wb-section">
+                <div class="wb-kicker"><span class="icon is-small">
+                  <img src="assets/ts1m/category.png" style="height: 1.6em;" loading="lazy" alt="">
+                </span>&nbsp;On-road Semantic Mapping</div>
+                  <div class="wb-hr"></div>
+
+                  <p class="wb-lead">An on-road semantic-mapping case study uses a vehicle equipped with a 128-beam LiDAR and surround-view cameras along an approximately <strong>1.4 km route</strong>. The route includes curves, intersections, roundabouts, and straight segments. The case study includes <strong>34 registered traffic-sign instances</strong>.</p>
+
+                  <p class="wb-lead">CLIP fine-tuned on TS-1M predicts sign categories. LLaVA receives sign images and scene descriptions to generate rule text. Camera–LiDAR registration associates these outputs with estimated three-dimensional positions in a point cloud map. This case study illustrates the integration of sign recognition and semantic annotations into mapping.</p>
+
+                  <figure style="width: 100%; max-width: 1000px; display: block; margin: 24px auto;">
+                    <img src="assets/ts1m/real-world.png" alt="Vehicle setup, driving route, and traffic signs registered in a point cloud map">
+                  </figure>
+
+                <br><br>
+              </div>
+            </section>
+
+            <section id="resources" hidden>
+  <div class="wb-section"><h2>Resources</h2><div class="button-container" id="resource-links"></div></div>
+</section>
+<footer class="wb-footer"><p>TS-1M · Anonymous project page</p>
+<p>Website content is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</p></footer>
+</div>
+</main>
+<dialog id="image-dialog" aria-label="Expanded figure"><button class="dialog-close" type="button" aria-label="Close expanded figure">×</button><img alt=""></dialog>
+</body>
+</html>
