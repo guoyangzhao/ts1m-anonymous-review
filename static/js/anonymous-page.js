@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   const links = Array.isArray(window.TS1M_RESOURCE_LINKS) ? window.TS1M_RESOURCE_LINKS : [];
   const holder = document.getElementById("resource-links");
+  const headerHolder = document.getElementById("dataset-download-links");
   for (const resource of links) {
     if (!resource || typeof resource.url !== "string" || !/^https:\/\//i.test(resource.url)) continue;
     const anchor = document.createElement("a");
@@ -37,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     anchor.target = "_blank";
     anchor.rel = "noopener noreferrer";
     holder.appendChild(anchor);
+    if (headerHolder) headerHolder.appendChild(anchor.cloneNode(true));
   }
   if (holder.children.length) document.getElementById("resources").hidden = false;
+  if (headerHolder && headerHolder.children.length) document.getElementById("dataset-downloads").hidden = false;
 });
